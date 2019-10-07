@@ -18,23 +18,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/env', '@babel/preset-react'],
-            plugins: [
-              [
-                'transform-object-rest-spread',
-                {
-                  useBuiltIns: true
-                }
-              ],
-              'transform-class-properties'
-            ]
-          }
-        }
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.hbs$/,
