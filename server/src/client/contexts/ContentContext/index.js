@@ -9,10 +9,8 @@ import { statusMessages } from '../../constants'
 const { UNINIT, PENDING, SUCCESS, FAILURE } = statusMessages
 
 const DEFAULT_CONTEXT = {
-  content: {
-    status: UNINIT,
-    data: null
-  }
+  status: UNINIT,
+  data: null
 }
 
 const CONTENT_TYPE = 'homePage'
@@ -53,12 +51,10 @@ export function ContentContextProvider({ children }) {
     }
   }, [content])
 
-  const value = {
-    content
-  }
-
   return (
-    <ContentContext.Provider value={value}>{children}</ContentContext.Provider>
+    <ContentContext.Provider value={content}>
+      {children}
+    </ContentContext.Provider>
   )
 }
 
