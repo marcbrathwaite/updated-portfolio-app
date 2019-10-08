@@ -2,6 +2,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 
+import Header from './Header'
+
 const MyPortfolio = ({ data }) => {
   const renderHead = () => {
     return (
@@ -11,12 +13,12 @@ const MyPortfolio = ({ data }) => {
     )
   }
 
-  console.log(data)
+  const { headerSection, sections, footerSection } = data
 
   return (
     <>
       {renderHead()}
-      This is a test
+      {headerSection && <Header content={headerSection} />}
     </>
   )
 }
