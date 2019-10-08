@@ -35,7 +35,7 @@ const MyName = styled.span`
   color: #2ec4b6;
 `
 
-const Header = ({ content }) => {
+const Header = ({ content, setSectionRef }) => {
   const {
     backgroundImage,
     navigationBar,
@@ -59,6 +59,7 @@ const Header = ({ content }) => {
           <NavigationBar
             content={navigationBar}
             isHamBurgerClicked={isHamBurgerClicked}
+            setSectionRef={setSectionRef}
           />
           <SubContainer>
             <Wrapper>
@@ -75,7 +76,8 @@ const Header = ({ content }) => {
 }
 
 Header.propTypes = {
-  content: PropTypes.object.isRequired
+  content: PropTypes.object.isRequired,
+  setSectionRef: PropTypes.func.isRequired
 }
 
 export default Header

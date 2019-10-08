@@ -53,11 +53,12 @@ const NavLink = styled.a`
   }
 `
 
-const NavigationBar = ({ content, isHamBurgerClicked }) => {
+const NavigationBar = ({ content, isHamBurgerClicked, setSectionRef }) => {
   const handleClick = event => {
     event.preventDefault()
     const id = event.target.name
     console.log('Link Click', id)
+    setSectionRef(id.slice(1))
   }
   return (
     <NavBar isClicked={isHamBurgerClicked}>
@@ -84,7 +85,8 @@ const NavigationBar = ({ content, isHamBurgerClicked }) => {
 
 NavigationBar.propTypes = {
   content: PropTypes.object.isRequired,
-  isHamBurgerClicked: PropTypes.bool.isRequired
+  isHamBurgerClicked: PropTypes.bool.isRequired,
+  setSectionRef: PropTypes.func.isRequired
 }
 
 export default NavigationBar
