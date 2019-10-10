@@ -1,5 +1,5 @@
-import App from './App'
-import MyPortfolio from './MyPortfolio'
+import App from './components/App'
+import MyPortfolio from './components/MyPortfolio'
 
 export default [
   {

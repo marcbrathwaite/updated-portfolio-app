@@ -57,7 +57,6 @@ const NavigationBar = ({ content, isHamBurgerClicked, setSectionRef }) => {
   const handleClick = event => {
     event.preventDefault()
     const id = event.target.name
-    console.log('Link Click', id)
     setSectionRef(id.slice(1))
   }
   return (

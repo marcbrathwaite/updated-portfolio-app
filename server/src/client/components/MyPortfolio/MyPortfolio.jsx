@@ -101,6 +101,9 @@ const MyPortfolio = ({ data, urlHash }) => {
     return (
       <Helmet>
         <title>Marc Brathwaite | Developer</title>
+        <meta name="description" content="Marc Brathwaite Portfolio" />
+        <meta name="keywords" content="Marc Brathwaite,Developer,Software" />
+        <meta name="author" content="Marc Brathwaite" />
       </Helmet>
     )
   }

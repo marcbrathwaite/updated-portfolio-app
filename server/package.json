@@ -12,7 +12,8 @@
     "dev:build-server": "webpack --mode development --config webpack.server.config.js --watch",
     "build:build-client": "webpack --config webpack.prod.client.config.js",
     "build:build-server": "webpack --mode production --config webpack.server.config.js",
-    "start": "node build/bundle.js"
+    "start": "node build/bundle.js",
+    "client": "webpack-dev-server --config webpack.dev.client.config.js --watch"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "contentfully": "^1.4.2",
     "express": "^4.17.1",
     "handlebars": "^4.4.2",
+    "lodash.isempty": "^4.4.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

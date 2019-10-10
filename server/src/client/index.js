@@ -4,16 +4,33 @@ import { BrowserRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 
 // Contexts
-import { ContentContextProvider } from './contexts/ContentContext'
+import StaticContext from './contexts/StaticContext'
 
 // Routes
-import routes from './components/routes'
+import routes from './routes'
+
+//Helpers
+import getData from '../helpers/getData'
+
+const path = window.document.location.pathname
+
+const promises = getData(routes, path)
+let data
+
+Promise.all(promises).then(responses => {
+  // responses.forEach(r => {
+  //   if (r) Object.assign(data, r)
+  // })
+  data = responses.reduce((acc, curr) => {
+    return { ...acc, ...curr }
+  }, {})
+})
 
 ReactDOM.hydrate(
-  <ContentContextProvider>
+  <StaticContext.Provider value={data}>
     <BrowserRouter>
       <div>{renderRoutes(routes)}</div>
     </BrowserRouter>
-  </ContentContextProvider>,
+  </StaticContext.Provider>,
   document.getElementById('root')
 )
