@@ -19,7 +19,7 @@ const CONTENT_TYPE = 'homePage'
 const contentManager = new ContentManager({ contentfulType: CONTENT_TYPE })
 
 const MyPortfolioContainer = ({ location, staticContext }) => {
-  const contentData = useContext(StaticContext)
+  const contextData = useContext(StaticContext)
   // Get hash from the URL
   const { hash } = location
   const urlHash = hash.slice(1)
@@ -53,28 +53,28 @@ const MyPortfolioContainer = ({ location, staticContext }) => {
       }
     }
 
-    if (content.status === UNINIT && !contentData) {
+    if (content.status === UNINIT && !contextData) {
       getContent()
-    } else if (contentData) {
+    } else if (contextData) {
       setContent({
         status: SUCCESS,
-        data: contentData
+        data: contextData
       })
     }
   }, [])
 
-  let testData = data
+  let contenfulData = data
   if (staticContext) {
-    testData = isEmpty(data) ? staticContext.data : data
+    contenfulData = isEmpty(data) ? staticContext.data : data
   }
 
   return (
     <>
-      {(isSuccess || staticContext || contentData) && (
-        <MyPortfolio data={testData} urlHash={urlHash} />
+      {(isSuccess || staticContext || contextData) && (
+        <MyPortfolio data={contenfulData} urlHash={urlHash} />
       )}
-      {isLoading && !staticContext && !contentData && <div>Loading...</div>}
-      {isFailure && !staticContext && !contentData && <div>Failure...</div>}
+      {isLoading && !staticContext && !contextData && <div>Loading...</div>}
+      {isFailure && !staticContext && !contextData && <div>Failure...</div>}
     </>
   )
 }
