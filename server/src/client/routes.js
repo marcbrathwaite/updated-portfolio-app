@@ -1,5 +1,6 @@
 import App from './components/App'
 import MyPortfolio from './components/MyPortfolio'
+import NotFound from './components/NotFound'
 
 export default [
   {
@@ -9,6 +10,9 @@ export default [
         ...MyPortfolio,
         path: '/',
         exact: true
+      },
+      {
+        ...NotFound
       }
     ]
   }

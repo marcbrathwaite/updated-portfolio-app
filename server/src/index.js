@@ -12,7 +12,7 @@ const app = express()
 // all requests to /static will pull from the dist folder
 app.use('/static', express.static('./dist'))
 
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
   const contentFromHTMLFile = fs.readFileSync('./dist/index.html', 'utf-8')
 
   const { path } = req
