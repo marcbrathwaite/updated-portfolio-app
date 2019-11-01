@@ -100,8 +100,11 @@ const MyPortfolio = ({ data, urlHash }) => {
   const renderHead = () => {
     return (
       <Helmet>
-        <title>Marc Brathwaite | Developer</title>
-        <meta name="description" content="Marc Brathwaite Portfolio" />
+        <title>Marc Brathwaite | FullStack Web Developer</title>
+        <meta
+          name="description"
+          content="The Portfolio Website of Marc Brathwaite describing his background, skills and the web projects he worked on"
+        />
         <meta name="keywords" content="Marc Brathwaite,Developer,Software" />
         <meta name="author" content="Marc Brathwaite" />
       </Helmet>
