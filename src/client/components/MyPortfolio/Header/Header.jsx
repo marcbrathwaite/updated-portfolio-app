@@ -43,7 +43,7 @@ const Header = ({ content, setSectionRef }) => {
     myName,
     headerSubtitle
   } = content
-
+  // Boolean for determining if the hamburger was clicked
   const [isHamBurgerClicked, setIsHamBurgerClicked] = useState(false)
 
   const handleClick = () => {

@@ -19,6 +19,7 @@ const CONTENT_TYPE = 'homePage'
 const contentManager = new ContentManager({ contentfulType: CONTENT_TYPE })
 
 const MyPortfolioContainer = ({ location, staticContext }) => {
+  // get result of async request from context
   const contextData = useContext(StaticContext)
   // Get hash from the URL
   const { hash } = location
@@ -64,6 +65,7 @@ const MyPortfolioContainer = ({ location, staticContext }) => {
   }, [])
 
   let contenfulData = data
+  // get data from staticContext on Server Side Render
   if (staticContext) {
     contenfulData = isEmpty(data) ? staticContext.data : data
   }

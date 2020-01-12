@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 // utils
 import media from '../../../../utils/screenSizeHelper'
 
+// show or hide nav bar based on hambugerclick
 const NavBar = styled.nav`
   display: flex;
   position: fixed;
@@ -54,6 +55,7 @@ const NavLink = styled.a`
 `
 
 const NavigationBar = ({ content, isHamBurgerClicked, setSectionRef }) => {
+  // handle clicking link in nav bar
   const handleClick = event => {
     event.preventDefault()
     const id = event.target.name

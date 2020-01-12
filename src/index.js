@@ -13,18 +13,22 @@ const app = express()
 app.use('/static', express.static('./dist'))
 
 app.get('*', function(req, res) {
+  // asynchronously read index file
   fs.readFile('./dist/index.html', 'utf-8', (err, contentFromHTMLFile) => {
     if (err) {
+      // return error is read fails
       return res.status(500)
     }
     const { path } = req
 
+    // will return an array of promises by matching the path requested by the user to the routes
     const promises = getData(routes, path)
 
     Promise.all(promises).then(responses => {
       // define contetxt object and pass it into renderer function
 
       const context = { data: {} }
+      // add response of async requests to context object
       responses.forEach(r => {
         if (r) {
           Object.assign(context.data, r)

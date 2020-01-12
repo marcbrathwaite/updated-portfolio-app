@@ -129,11 +129,13 @@ const MyPortfolio = ({ data, urlHash }) => {
 
   useEffect(() => {
     if (refMap[sectionRef]) {
+      // select ref based on hash in the url
       setSectionRef(urlHash)
     }
   }, [urlHash])
 
   useEffect(() => {
+    // scroll to appropriate component based on sectionRef
     if (sectionRef) {
       const { offsetTop } = refMap[sectionRef].current
       window.scrollTo({

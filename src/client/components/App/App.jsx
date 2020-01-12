@@ -7,7 +7,7 @@ import './normalize.scss'
 
 const App = ({ route }) => {
   const { routes } = route
-
+  // render subRoutes i.e. MyPortfolio and NotFound
   return <div>{renderRoutes(routes)}</div>
 }
 
